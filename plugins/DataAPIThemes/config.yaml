@@ -1,0 +1,28 @@
+id: DataAPIThemes
+name: DataAPIThemes
+version: 0.1
+description: Data API plugin to handle themes
+author_name: Shigeaki Matsumura
+author_link: http://backflip180.jp
+
+applications:
+  data_api:
+    endpoints:
+      - id: list_themes
+        route: /themes
+        verb: GET
+        version: 1
+        handler: DataAPIThemes::Endpoint::Theme::list
+        requires_login: 1
+      - id: get_theme
+        route: /sites/:site_id/theme
+        verb: GET
+        version: 1
+        handler: DataAPIThemes::Endpoint::Theme::get
+        requires_login: 1
+      - id: apply_theme
+        route: /sites/:site_id/theme
+        verb: POST
+        version: 1
+        handler: DataAPIThemes::Endpoint::Theme::apply
+        requires_login: 1
